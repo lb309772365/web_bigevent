@@ -34,14 +34,14 @@ function getUserInfo() {
                 return layui.layer.msg('获取用户信息失败!')
             }
             //调用函数渲染用户头像
-            renderAvater(res.data)
+            renderAvatar(res.data)
         },
         //不论成功还是失败,都会调用 complete 回调函数
     })
 }
 
 //渲染用户头像
-function renderAvater(user) {
+function renderAvatar(user) {
     //1.获取用户名称
     var name = user.nickname || user.username
     //2.设置欢迎文本
@@ -50,12 +50,12 @@ function renderAvater(user) {
     if (user.user_pic !== null) {
         //3.1渲染图片头像
         $('.lay-nav-img').attr('src',user.user_pic).show()
-        $('.text-avater').hide()
+        $('.text-avatar').hide()
     } else {
         //3.2渲染文本头像
         $('.layui-nav-img').hide()
         var first = name[0].toUpperCase()
-        $('.text-avater').html(first).show()
+        $('.text-avatar').html(first).show()
     }
 }
 
